@@ -65,7 +65,7 @@ func TestProgressReaderWithContext(t *testing.T) {
 	for {
 		select {
 		case <-time.Tick(15 * time.Millisecond):
-			_ = in.Loaded()
+			_ = in.Total()
 		case err := <-done:
 			if err != context.DeadlineExceeded {
 				t.Fatalf("wrong error value: expected %v, has %v\n", context.DeadlineExceeded, err)
